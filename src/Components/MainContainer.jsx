@@ -6,7 +6,9 @@ import VideoBackground from './VideoBackground'
 
 const MainContainer = () => {
   const movies = useSelector(store => store.movie?.nowPlayingMovies)
-  if (!movies || movies.length === 0) return null;
+  if (!movies || movies.length === 0) {
+    return <div className="h-screen bg-black w-full"></div>;
+  }
   const mainMovie = movies[0];
   if (!mainMovie) return null;
   const {original_title, overview, id} = mainMovie;

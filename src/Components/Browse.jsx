@@ -42,7 +42,7 @@ const Browse = () => {
   }, [dispatch]);
   
   return (
-    <div>
+    <div className="min-h-screen bg-black w-full overflow-x-hidden">
       <Header />
       {showSearch ? (
         <Search />
