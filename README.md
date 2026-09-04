@@ -73,4 +73,4 @@ npm run dev
 Open [http://localhost:5173](http://localhost:5173) in your browser.
 
 ## 🌐 Live Demo
-You can view the live deployed application here: [https://netfllix-gpt-e9821.web.app](https://netfllix-gpt-e9821.web.app)
+You can view the live deployed application here: [https://netflix-rudra.web.app](https://netflix-rudra.web.app)

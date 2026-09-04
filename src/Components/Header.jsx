@@ -24,22 +24,22 @@ const Header = () => {
   };
 
   return (
-    <div className='absolute w-full px-8 py-2 bg-linear-to-b from-black z-10 flex flex-col md:flex-row justify-between items-center z-20'>
+    <div className='absolute w-full px-4 md:px-8 py-2 md:py-4 bg-gradient-to-b from-black flex justify-between items-center z-20'>
          <img src="https://occ.a.nflxso.net/dnmt/api/v6/iL4oJVDYZ8KLSrJ6eG2OwtghbfQ/AAAAAUkLCBtHBbguPPqzaFOzEv4Pw_eS79j0y7ADR4hkB30-HkahpsUb5yvfzgKsfU2oNda-7hpkfYLnXhjc23JVT07PHsGgfsaHAB7qOhy2_5gn-nuKOVSUSBzn-i-O3ea2QQaXx3PYkHes.svg"
-         alt="logo" className='w-32 md:w-44 mx-auto md:mx-0'/>
+         alt="logo" className='w-24 md:w-44'/>
          {user && (
-           <div className='flex items-center gap-2'>
+           <div className='flex items-center gap-2 md:gap-4'>
              {showSearch && (
-               <select className='p-2 m-2 bg-gray-900 text-white rounded-lg' onChange={handleLanguageChange}>
+               <select className='p-1 md:p-2 bg-gray-900/80 text-white text-xs md:text-base rounded-md border border-gray-600 focus:outline-none' onChange={handleLanguageChange}>
                  <option value="en">English</option>
                  <option value="hi">Hindi</option>
                  <option value="es">Spanish</option>
                </select>
              )}
-            <button onClick={handleSearchClick} className='py-2 px-4 text-white cursor-pointer bg-purple-500 rounded-lg'>{showSearch ? "Homepage" : "Search"}</button>
+            <button onClick={handleSearchClick} className='py-1 px-2 md:py-2 md:px-4 text-white cursor-pointer bg-purple-600 hover:bg-purple-700 transition-colors rounded-md text-xs md:text-base font-semibold'>{showSearch ? "Home" : "Search"}</button>
              <button
                onClick={handleSignOut}
-               className='bg-red-600 text-white font-medium px-4 py-2 rounded cursor-pointer hover:bg-red-700'
+               className='bg-[#E50914] text-white font-semibold px-2 py-1 md:px-4 md:py-2 rounded-md cursor-pointer hover:bg-red-700 transition-colors text-xs md:text-base'
              >
                Sign Out
              </button>

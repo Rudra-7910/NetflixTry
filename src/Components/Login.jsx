@@ -56,23 +56,23 @@ const Login = () => {
       <div className="relative flex items-center justify-center h-screen pt-20 md:pt-0">
         <form
           onSubmit={handleSubmit(handleSubmitClick)}
-          className="p-8 md:p-12 w-full md:w-8/12 lg:w-4/12 bg-black/80 text-white rounded-lg mx-4 md:mx-0"
+          className="p-10 w-full md:w-8/12 lg:w-4/12 bg-black/75 text-white rounded-lg mx-4 md:mx-0 backdrop-blur-sm border border-gray-800 shadow-2xl"
         >
-          <h1 className="font-bold text-xl mb-4">
+          <h1 className="font-bold text-3xl mb-8">
             {isSignInForm ? "Sign In" : "Sign Up"}
           </h1>
 
           <input
             type="email"
             placeholder="Email Address"
-            className="p-2 my-2 w-full bg-gray-700 text-slate-300"
+            className="p-4 my-2 w-full bg-gray-800/80 text-white rounded-md border border-gray-600 focus:outline-none focus:ring-2 focus:ring-white transition-all"
             {...register("email", {
               required: "Email is required",
             })}
           />
 
           {errors.email && (
-            <p className="text-red-500 text-sm">
+            <p className="text-red-500 text-sm font-medium">
               {errors.email.message}
             </p>
           )}
@@ -80,20 +80,20 @@ const Login = () => {
           <input
             type="password"
             placeholder="Password"
-            className="p-2 my-2 w-full bg-gray-700 text-slate-300"
+            className="p-4 my-4 w-full bg-gray-800/80 text-white rounded-md border border-gray-600 focus:outline-none focus:ring-2 focus:ring-white transition-all"
             {...register("password", {
               required: "Password is required",
             })}
           />
 
           {errors.password && (
-            <p className="text-red-500 text-sm">
+            <p className="text-red-500 text-sm font-medium">
               {errors.password.message}
             </p>
           )}
 
           {errorMessage && (
-            <p className="text-red-500 text-sm my-2">
+            <p className="text-red-500 text-sm my-2 font-medium">
               {errorMessage}
             </p>
           )}
@@ -101,7 +101,7 @@ const Login = () => {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="bg-red-500 p-4 mt-4 w-full disabled:opacity-50"
+            className="bg-[#E50914] p-3 mt-6 w-full rounded-md font-semibold text-lg hover:bg-red-700 transition-colors disabled:opacity-50"
           >
             {isSubmitting
               ? "Loading..."
@@ -111,12 +111,14 @@ const Login = () => {
           </button>
 
           <p
-            className="p-2 cursor-pointer mt-3"
+            className="p-2 cursor-pointer mt-8 text-gray-400 hover:text-white transition-colors"
             onClick={toggleSignInForm}
           >
-            {isSignInForm
-              ? "New to Netflix? Sign up now"
-              : "Already a user? Sign in"}
+            {isSignInForm ? (
+              <>New to Netflix? <span className="font-bold text-white">Sign up now.</span></>
+            ) : (
+              <>Already a user? <span className="font-bold text-white">Sign in.</span></>
+            )}
           </p>
         </form>
       </div>
