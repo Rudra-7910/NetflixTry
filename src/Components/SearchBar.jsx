@@ -2,10 +2,10 @@ import React, { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import lang from '../utils/languageConstants';
 import { API_OPTIONS } from '../utils/constants';
-import { addGptMovieResult } from '../utils/gptSlice';
+import { addSearchResults } from '../utils/searchSlice';
 import axios from 'axios';
 
-const GptSearchBar = () => {
+const SearchBar = () => {
     const langKey = useSelector((store) => store.config.lang);
     const searchText = useRef(null);
     const dispatch = useDispatch();
@@ -18,12 +18,12 @@ const GptSearchBar = () => {
         );
         return data.data.results;
     };
-    const handleGptSearchClick = async () => {
+    const handleSearchClick = async () => {
         const query = searchText.current.value;
         if (!query) return;
         try {
             const results = await searchMovieTMDB(query);
-            dispatch(addGptMovieResult({ movieResults: results }));
+            dispatch(addSearchResults({ movieResults: results }));
         } catch (error) {
             console.error("Search Error: ", error);
         }
@@ -40,7 +40,7 @@ const GptSearchBar = () => {
                 />
                 <button 
                     className="m-4 mt-0 md:mt-4 md:col-span-3 py-2 px-4 bg-red-600 hover:bg-red-700 text-white rounded-lg font-semibold text-lg transition-colors"
-                    onClick={handleGptSearchClick}
+                    onClick={handleSearchClick}
                 >
                     {lang[langKey].searchButton}
                 </button>
@@ -49,4 +49,4 @@ const GptSearchBar = () => {
     );
 };
 
-export default GptSearchBar;
+export default SearchBar;

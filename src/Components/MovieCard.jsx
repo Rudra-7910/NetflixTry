@@ -1,3 +1,4 @@
+//analyzed
 import React from 'react'
 import { IMG_CDN } from '../utils/constants'
 import { useNavigate } from 'react-router-dom';

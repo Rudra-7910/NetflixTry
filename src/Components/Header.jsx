@@ -1,16 +1,16 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { toggleGptSearchView } from '../utils/gptSlice'
+import { toggleSearchView } from '../utils/searchSlice'
 import { changeLanguage } from '../utils/configSlice'
 import { signOut } from 'firebase/auth'
 import { auth } from '../utils/firebase'
 const Header = () => {
   const dispatch = useDispatch();
   const user = useSelector(store => store.user);
-  const showGptSearch = useSelector(store => store.gpt.showGptSearchView);
+  const showSearch = useSelector(store => store.search.showSearchView);
 
-  const handleGptSearchClick = () => {
-    dispatch(toggleGptSearchView());
+  const handleSearchClick = () => {
+    dispatch(toggleSearchView());
   };
 
   const handleLanguageChange = (e) => {
@@ -29,14 +29,14 @@ const Header = () => {
          alt="logo" className='w-32 md:w-44 mx-auto md:mx-0'/>
          {user && (
            <div className='flex items-center gap-2'>
-             {showGptSearch && (
+             {showSearch && (
                <select className='p-2 m-2 bg-gray-900 text-white rounded-lg' onChange={handleLanguageChange}>
                  <option value="en">English</option>
                  <option value="hi">Hindi</option>
                  <option value="es">Spanish</option>
                </select>
              )}
-            <button onClick={handleGptSearchClick} className='py-2 px-4 text-white cursor-pointer bg-purple-500 rounded-lg'>{showGptSearch ? "Homepage" : "Search"}</button>
+            <button onClick={handleSearchClick} className='py-2 px-4 text-white cursor-pointer bg-purple-500 rounded-lg'>{showSearch ? "Homepage" : "Search"}</button>
              <button
                onClick={handleSignOut}
                className='bg-red-600 text-white font-medium px-4 py-2 rounded cursor-pointer hover:bg-red-700'

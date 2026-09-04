@@ -2,8 +2,8 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import MovieList from './MovieList';
 
-const GptMovieSuggestions = () => {
-  const { movieResults } = useSelector((store) => store.gpt);
+const SearchResults = () => {
+  const { movieResults } = useSelector((store) => store.search);
   
   if (!movieResults || movieResults.length === 0) return null;
 
@@ -19,4 +19,4 @@ const GptMovieSuggestions = () => {
   );
 };
 
-export default GptMovieSuggestions;
+export default SearchResults;

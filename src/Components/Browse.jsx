@@ -6,10 +6,10 @@ import Header from './Header';
 import MainContainer from './MainContainer';
 import SecondaryContainer from './SecondaryContainer';
 import axios from "axios"
-import GPT_search from './GPT_search';
+import Search from './Search';
 const Browse = () => {
   const dispatch = useDispatch();
-  const showGptSearch = useSelector((store) => store.gpt.showGptSearchView);
+  const showSearch = useSelector((store) => store.search.showSearchView);
   useEffect(() => {
     const getNowPlayingMovies = async () => {
       try {
@@ -44,8 +44,8 @@ const Browse = () => {
   return (
     <div>
       <Header />
-      {showGptSearch ? (
-        <GPT_search />
+      {showSearch ? (
+        <Search />
       ) : (
         <>
           <MainContainer />
